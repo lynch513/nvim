@@ -43,7 +43,7 @@ return {
     spec = {
       { '<leader>b', group = 'Buffers' },
       { '<leader>c', group = 'Code', mode = { 'n', 'x' } },
-      { '<leader>d', group = 'Document' },
+      -- { '<leader>d', group = 'Document' },
       -- { '<leader>r', group = '[R]ename' },
       { '<leader>s', group = 'Search' },
       { '<leader>f', group = 'Find' },

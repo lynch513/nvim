@@ -24,7 +24,28 @@ require('lazy').setup({
   require 'plugins.gitsigns',
   require 'plugins.which-key',
   require 'plugins.telescope',
+  require 'plugins.autopairs',
+  require 'plugins.indent-line',
+  require 'plugins.todo-comments',
+  require 'plugins.nvim-surround',
+  -- Appearance
   require 'plugins.neo-tree',
+  require 'plugins.themes',
+  require 'plugins.lualine',
+  require 'plugins.bufferline',
+  -- LSP configuration
+  require 'plugins.lazydev',
+  require 'plugins.luvit',
+  require 'plugins.nvim-lspconfig',
+  require 'plugins.nvim-treesitter',
+  -- Autocomplete
+  require 'plugins.nvim-cmp',
+  -- Autoformat
+  require 'plugins.conform',
+  -- Linting
+  require 'plugins.lint',
+  -- Start page
+  require 'plugins.dashboard',
 }, {
   ui = {
     -- If you have a Nerd Font, set icons to an empty table which will use the

@@ -31,15 +31,15 @@ vim.keymap.set('n', '<Tab>', ':bnext<CR>', opts)
 vim.keymap.set('n', '<S-Tab>', ':bprevious<CR>', opts)
 vim.keymap.set('n', ']t', ':bnext<CR>', { desc = 'Go to next buffer' })
 vim.keymap.set('n', '[t', ':bprevious<CR>', { desc = 'Go to previous buffer' })
-vim.keymap.set('n', '<leader>bk', ':Bdelete!<CR>', { desc = 'Current [B]uffer [K]ill' })
-vim.keymap.set('n', '<leader>bc', ':Bdelete!<CR>', { desc = 'Current [B]uffer [C]lose' })
-vim.keymap.set('n', '<leader>bn', '<cmd> enew <CR>', { desc = '[B]uffer [N]ew' })
+vim.keymap.set('n', '<leader>bk', ':bdelete<CR>', { desc = 'Current buffer kill' })
+vim.keymap.set('n', '<leader>bc', ':bdelete<CR>', { desc = 'Current buffer close' })
+vim.keymap.set('n', '<leader>bn', '<cmd> enew <CR>', { desc = 'Buffer new' })
 
 -- Window management
-vim.keymap.set('n', '<leader>wv', '<C-w>v', { desc = 'Split [W]indow [V]ertically' })
-vim.keymap.set('n', '<leader>ws', '<C-w>s', { desc = 'Split [W]indow [H]orizontally'})
-vim.keymap.set('n', '<leader>w=', '<C-w>=', { desc = 'Make split [W]indows [=] equal width & height' })
-vim.keymap.set('n', '<leader>wc', ':close<CR>', { desc = '[W]indow [C]lose current split ' }) 
+vim.keymap.set('n', '<leader>wv', '<C-w>v', { desc = 'Split window vertically' })
+vim.keymap.set('n', '<leader>ws', '<C-w>s', { desc = 'Split window horizontally' })
+vim.keymap.set('n', '<leader>w=', '<C-w>=', { desc = 'Make split windows equal width & height' })
+vim.keymap.set('n', '<leader>wc', ':close<CR>', { desc = 'Window close current split ' })
 
 -- Navigate between splits
 vim.keymap.set('n', '<C-k>', ':wincmd k<CR>', { desc = 'Move focus to the up window' })
@@ -69,12 +69,11 @@ vim.keymap.set('n', '<leader>td', function()
   diagnostics_active = not diagnostics_active
 
   if diagnostics_active then
-    vim.diagnostic.enable(0)
+    vim.diagnostic.enable(true)
   else
-    vim.diagnostic.disable(0)
+    vim.diagnostic.enable(false)
   end
-end, 
-{ desc = '[T]oggle [D]iagnostics' } )
+end, { desc = 'Toggle Diagnostics' })
 
 -- Diagnostic keymaps
 vim.keymap.set('n', '[d', vim.diagnostic.goto_prev, { desc = 'Go to previous diagnostic message' })
