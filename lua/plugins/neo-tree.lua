@@ -24,8 +24,8 @@ return {
         }
       end,
       keys = {
-        { '<leader>e', ':Neotree float<CR>', silent = true, desc = 'File Explorer' },
-      }
+        { '<leader>e', ':Neotree float reveal<CR>', silent = true, desc = 'File Explorer' },
+      },
     },
     config = function()
       -- If you want icons for diagnostic errors, you'll need to define them somewhere:
