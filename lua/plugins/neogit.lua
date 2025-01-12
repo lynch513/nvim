@@ -5,7 +5,9 @@ return {
     'sindrets/diffview.nvim', -- optional - Diff integration
     'nvim-telescope/telescope.nvim', -- optional
   },
-  opts = {},
+  opts = {
+    log_date_format = '%Y-%m-%d %H:%M',
+  },
   config = function(_, opts)
     local neogit = require 'neogit'
     neogit.setup(opts)

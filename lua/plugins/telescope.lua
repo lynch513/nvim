@@ -42,7 +42,7 @@ return {
       },
       pickers = {
         find_files = {
-          file_ignore_patterns = { 'node_modules', '.git', '.venv' },
+          file_ignore_patterns = { 'node_modules', '%.git/', '%.venv/' },
           hidden = true,
         },
         buffers = {
@@ -57,7 +57,7 @@ return {
           },
         },
         live_grep = {
-          file_ignore_patterns = { 'node_modules', '.git', '.venv' },
+          file_ignore_patterns = { 'node_modules', '%.git/', '%.venv/' },
           additional_args = function(_)
             return { '--hidden' }
           end,
@@ -108,7 +108,7 @@ return {
     -- Git
     vim.keymap.set('n', '<leader>gf', builtin.git_files, { desc = 'Search git files' })
     vim.keymap.set('n', '<leader>gc', builtin.git_commits, { desc = 'Search git commits' })
-    vim.keymap.set('n', '<leader>gcf', builtin.git_bcommits, { desc = 'Search git commits for current file' })
+    vim.keymap.set('n', '<leader>gC', builtin.git_bcommits, { desc = 'Search git commits for current file' })
     vim.keymap.set('n', '<leader>gb', builtin.git_branches, { desc = 'Search git branches' })
     vim.keymap.set('n', '<leader>gs', builtin.git_status, { desc = 'Search git status (diff view)' })
     -- Search
