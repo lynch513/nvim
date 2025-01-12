@@ -1,10 +1,10 @@
 -- Set highlight on search
-vim.o.hlsearch = false
+vim.o.hlsearch = true
 
 -- Make line numbers default
 vim.wo.number = true
 -- Set relative numbered lines
--- vim.o.relativenumber = true
+vim.o.relativenumber = true
 
 -- Enable mouse mode
 vim.o.mouse = 'a'
@@ -50,7 +50,7 @@ vim.opt.termguicolors = true
 -- Which "horizontal" keys are allowed to travel to prev/next line
 vim.o.whichwrap = 'bs<>[]hl'
 
--- Display lines as one long line
+-- Wrap long line
 vim.o.wrap = false
 
 -- Companion to wrap don't split words
@@ -104,7 +104,7 @@ vim.o.backspace = 'indent,eol,start'
 -- Pop up menu height
 vim.o.pumheight = 10
 
--- So that `` is visible in markdown files
+-- So that is visible in markdown files
 vim.o.conceallevel = 2
 
 vim.o.fileencoding = 'utf-8' -- the encoding written to a file
@@ -140,3 +140,7 @@ vim.api.nvim_create_autocmd('TextYankPost', {
     vim.highlight.on_yank()
   end,
 })
+
+-- Spell check
+vim.opt.spell = true
+vim.opt.spelllang = { 'en', 'ru' }

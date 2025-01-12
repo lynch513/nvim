@@ -62,6 +62,8 @@ vim.keymap.set('v', '>', '>gv', opts)
 -- Keep last yanked when pasting
 vim.keymap.set('v', 'p', '"_dP', opts)
 
+-- Toggle keymaps
+
 -- Toggle diagnostics
 local diagnostics_active = true
 
@@ -73,7 +75,33 @@ vim.keymap.set('n', '<leader>td', function()
   else
     vim.diagnostic.enable(false)
   end
-end, { desc = 'Toggle Diagnostics' })
+end, { desc = 'Toggle diagnostics' })
+
+-- Toggle line wrap
+local line_wrapping_flag = false
+
+vim.keymap.set('n', '<leader>tw', function()
+  line_wrapping_flag = not line_wrapping_flag
+
+  if line_wrapping_flag then
+    vim.o.wrap = true
+  else
+    vim.o.wrap = false
+  end
+end, { desc = 'Soft line wrapping' })
+
+-- Toggle conceal level
+local conceal_level_flag = true
+
+vim.keymap.set('n', '<leader>tc', function()
+  conceal_level_flag = not conceal_level_flag
+
+  if conceal_level_flag then
+    vim.o.conceallevel = 2
+  else
+    vim.o.conceallevel = 0
+  end
+end, { desc = 'Toggle conceal level' })
 
 -- Diagnostic keymaps
 vim.keymap.set('n', '[d', vim.diagnostic.goto_prev, { desc = 'Go to previous diagnostic message' })

@@ -21,7 +21,6 @@ vim.opt.rtp:prepend(lazypath)
 -- Setup plugins
 require('lazy').setup({
   require 'plugins.vim-sleuth',
-  require 'plugins.gitsigns',
   require 'plugins.which-key',
   require 'plugins.telescope',
   require 'plugins.autopairs',
@@ -46,6 +45,9 @@ require('lazy').setup({
   require 'plugins.lint',
   -- Start page
   require 'plugins.dashboard',
+  -- Git
+  require 'plugins.gitsigns',
+  require 'plugins.neogit',
 }, {
   ui = {
     -- If you have a Nerd Font, set icons to an empty table which will use the
