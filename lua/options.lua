@@ -107,7 +107,7 @@ vim.o.pumheight = 10
 -- So that is visible in markdown files
 vim.o.conceallevel = 2
 
-vim.o.fileencoding = 'utf-8' -- the encoding written to a file
+vim.o.fileencodings = 'utf-8,cp1251,koi8-r' -- the encoding written to a file
 
 -- More space in the neovim command line for displaying messages
 vim.o.cmdheight = 1

@@ -108,3 +108,18 @@ vim.keymap.set('n', '[d', vim.diagnostic.goto_prev, { desc = 'Go to previous dia
 vim.keymap.set('n', ']d', vim.diagnostic.goto_next, { desc = 'Go to next diagnostic message' })
 vim.keymap.set('n', '<leader>d', vim.diagnostic.open_float, { desc = 'Open floating diagnostic message' })
 vim.keymap.set('n', '<leader>q', vim.diagnostic.setloclist, { desc = 'Open diagnostics list' })
+
+-- Reopen file with given encoding
+vim.keymap.set('n', '<leader>fr', function()
+  local encodings_choice = { '1. utf-8', '2. cp1251', '3. koi8-r', '4. cp866' }
+  local encodings = { 'utf-8', 'cp1251', 'koi8-r', 'cp866' }
+  local choice = vim.fn.inputlist(encodings_choice)
+
+  if choice > 0 and choice <= #encodings then
+    local selected_encoding = encodings[choice]
+    vim.cmd('e ++enc=' .. selected_encoding)
+    print('\nFile reopened with encoding: ' .. selected_encoding)
+  else
+    print '\nInvalid choice or canceled'
+  end
+end, { desc = 'Reopen file with selected encoding' })
