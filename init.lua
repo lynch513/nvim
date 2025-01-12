@@ -20,7 +20,6 @@ vim.opt.rtp:prepend(lazypath)
 
 -- Setup plugins
 require('lazy').setup({
-  require 'plugins.vim-sleuth',
   require 'plugins.which-key',
   require 'plugins.telescope',
   require 'plugins.autopairs',
