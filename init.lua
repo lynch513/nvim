@@ -43,7 +43,7 @@ require('lazy').setup({
   -- Linting
   require 'plugins.lint',
   -- Start page
-  require 'plugins.dashboard',
+  require 'plugins.alpha',
   -- Git
   require 'plugins.gitsigns',
   require 'plugins.neogit',
