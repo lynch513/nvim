@@ -47,6 +47,8 @@ require('lazy').setup({
   -- Git
   require 'plugins.gitsigns',
   require 'plugins.neogit',
+  -- Other
+  require 'plugins.render-markdown',
 }, {
   ui = {
     -- If you have a Nerd Font, set icons to an empty table which will use the

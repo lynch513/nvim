@@ -130,6 +130,14 @@ vim.opt.runtimepath:remove '/usr/share/vim/vimfiles'
 vim.opt.list = true
 vim.opt.listchars = { tab = '» ', trail = '·', nbsp = '␣' }
 
+-- Remove unnecessary spaces at the end of lines
+vim.api.nvim_create_autocmd('BufWritePre', {
+  pattern = '*',
+  callback = function()
+    vim.cmd [[%s/\s\+$//e]]
+  end,
+})
+
 -- Highlight when yanking (copying) text
 --  Try it with `yap` in normal mode
 --  See `:help vim.highlight.on_yank()`
