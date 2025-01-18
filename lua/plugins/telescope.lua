@@ -21,11 +21,12 @@ return {
     -- Useful for getting pretty icons, but requires a Nerd Font.
     { 'nvim-tree/nvim-web-devicons', enabled = vim.g.have_nerd_font },
     { 'nvim-telescope/telescope-live-grep-args.nvim' },
+    { 'nvim-telescope/telescope-project.nvim' },
   },
   config = function()
     local actions = require 'telescope.actions'
     local builtin = require 'telescope.builtin'
-    local telescope = require 'telescope'
+    local extensions = require('telescope').extensions
 
     require('telescope').setup {
       defaults = {
@@ -84,6 +85,7 @@ return {
     pcall(require('telescope').load_extension, 'ui-select')
     pcall(require('telescope').load_extension, 'noice')
     pcall(require('telescope').load_extension, 'live_grep_args')
+    pcall(require('telescope').load_extension, 'project')
 
     -- vim.keymap.set('n', '<leader>sh', builtin.help_tags, { desc = '[S]earch [H]elp' })
     -- vim.keymap.set('n', '<leader>sk', builtin.keymaps, { desc = '[S]earch [K]eymaps' })
@@ -117,7 +119,7 @@ return {
     -- Search
     -- vim.keymap.set('n', '<leader>sg', builtin.grep_string, { desc = 'Search word in files' })
     vim.keymap.set('n', '<leader>sg', function()
-      telescope.extensions.live_grep_args.live_grep_args {
+      extensions.live_grep_args.live_grep_args {
         prompt_title = 'Search word in all files',
       }
     end, { desc = 'Search word in files' })
@@ -140,5 +142,10 @@ return {
       }
     end, { desc = 'Search word in open files' })
     vim.keymap.set('n', '<leader>sm', '<cmd>Telescope noice<CR>', { desc = 'Fuzzily search in messages' })
+    vim.keymap.set('n', '<leader>sp', function()
+      extensions.project.project {
+        display_type = 'full',
+      }
+    end, { desc = 'Search projects' })
   end,
 }
