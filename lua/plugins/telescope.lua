@@ -41,6 +41,12 @@ return {
             ['q'] = actions.close,
           },
         },
+        layout_config = {
+          horizontal = {
+            height = 0.95,
+            width = 0.95,
+          },
+        },
       },
       pickers = {
         find_files = {
