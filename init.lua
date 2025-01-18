@@ -31,6 +31,7 @@ require('lazy').setup({
   require 'plugins.themes',
   require 'plugins.lualine',
   require 'plugins.bufferline',
+  require 'plugins.noice',
   -- LSP configuration
   require 'plugins.lazydev',
   require 'plugins.luvit',

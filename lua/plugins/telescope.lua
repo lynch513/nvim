@@ -18,13 +18,14 @@ return {
       end,
     },
     { 'nvim-telescope/telescope-ui-select.nvim' },
-
     -- Useful for getting pretty icons, but requires a Nerd Font.
     { 'nvim-tree/nvim-web-devicons', enabled = vim.g.have_nerd_font },
+    { 'nvim-telescope/telescope-live-grep-args.nvim' },
   },
   config = function()
     local actions = require 'telescope.actions'
     local builtin = require 'telescope.builtin'
+    local telescope = require 'telescope'
 
     require('telescope').setup {
       defaults = {
@@ -33,7 +34,7 @@ return {
             ['<C-k>'] = actions.move_selection_previous,
             ['<C-j>'] = actions.move_selection_next,
             ['<C-l>'] = actions.select_default,
-            ['<c-enter>'] = 'to_fuzzy_refine',
+            ['<C-enter>'] = actions.to_fuzzy_refine,
           },
           n = {
             ['q'] = actions.close,
@@ -42,7 +43,7 @@ return {
       },
       pickers = {
         find_files = {
-          file_ignore_patterns = { 'node_modules', '%.git[\\/]', '%.venv[\\/]' },
+          file_ignore_patterns = { 'node_modules', '%.git[\\/]', '%.venv[\\/]', '%.nuget[\\/]', '%.dotnet[\\/]' },
           hidden = true,
         },
         buffers = {
@@ -57,7 +58,7 @@ return {
           },
         },
         live_grep = {
-          file_ignore_patterns = { 'node_modules', '%.git/', '%.venv/' },
+          file_ignore_patterns = { 'node_modules', '%.git[\\/]', '%.venv[/\\]', '%.nuget[\\/]', '%.dotnet[\\/]' },
           additional_args = function(_)
             return { '--hidden' }
           end,
@@ -81,6 +82,8 @@ return {
     -- Enable Telescope extensions if they are installed
     pcall(require('telescope').load_extension, 'fzf')
     pcall(require('telescope').load_extension, 'ui-select')
+    pcall(require('telescope').load_extension, 'noice')
+    pcall(require('telescope').load_extension, 'live_grep_args')
 
     -- vim.keymap.set('n', '<leader>sh', builtin.help_tags, { desc = '[S]earch [H]elp' })
     -- vim.keymap.set('n', '<leader>sk', builtin.keymaps, { desc = '[S]earch [K]eymaps' })
@@ -114,11 +117,17 @@ return {
     -- Search
     -- vim.keymap.set('n', '<leader>sg', builtin.grep_string, { desc = 'Search word in files' })
     vim.keymap.set('n', '<leader>sg', function()
-      builtin.live_grep {
+      telescope.extensions.live_grep_args.live_grep_args {
         prompt_title = 'Search word in all files',
       }
     end, { desc = 'Search word in files' })
     vim.keymap.set('n', '<leader>ss', function()
+      builtin.current_buffer_fuzzy_find(require('telescope.themes').get_dropdown {
+        winblend = 10,
+        previewer = false,
+      })
+    end, { desc = 'Fuzzily search in current buffer' })
+    vim.keymap.set('n', '<leader>/', function()
       builtin.current_buffer_fuzzy_find(require('telescope.themes').get_dropdown {
         winblend = 10,
         previewer = false,
@@ -130,5 +139,6 @@ return {
         prompt_title = 'Search word in open files',
       }
     end, { desc = 'Search word in open files' })
+    vim.keymap.set('n', '<leader>sm', '<cmd>Telescope noice<CR>', { desc = 'Fuzzily search in messages' })
   end,
 }
