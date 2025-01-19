@@ -52,8 +52,9 @@ vim.keymap.set('n', '<leader>wj', ':wincmd j<CR>', { desc = 'Move focus to the b
 vim.keymap.set('n', '<leader>wh', ':wincmd h<CR>', { desc = 'Move focus to the left window' })
 vim.keymap.set('n', '<leader>wl', ':wincmd l<CR>', { desc = 'Move focus to the right window' })
 
--- Press jk fast to exit insert mode
+-- Press jk or ол fast to exit insert mode
 vim.keymap.set('i', 'jk', '<ESC>', opts)
+vim.keymap.set('i', 'ол', '<ESC>', opts)
 
 -- Stay in indent mode
 vim.keymap.set('v', '<', '<gv', opts)
