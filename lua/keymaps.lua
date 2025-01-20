@@ -42,15 +42,19 @@ vim.keymap.set('n', '<leader>w=', '<C-w>=', { desc = 'Make split windows equal w
 vim.keymap.set('n', '<leader>wc', ':close<CR>', { desc = 'Window close current split ' })
 
 -- Navigate between splits
-vim.keymap.set('n', '<C-k>', ':wincmd k<CR>', { desc = 'Move focus to the up window' })
-vim.keymap.set('n', '<C-j>', ':wincmd j<CR>', { desc = 'Move focus to the bottom window' })
-vim.keymap.set('n', '<C-h>', ':wincmd h<CR>', { desc = 'Move focus to the left window' })
-vim.keymap.set('n', '<C-l>', ':wincmd l<CR>', { desc = 'Move focus to the right window' })
+-- vim.keymap.set('n', '<C-k>', ':wincmd k<CR>', { desc = 'Move focus to the up window' })
+-- vim.keymap.set('n', '<C-j>', ':wincmd j<CR>', { desc = 'Move focus to the bottom window' })
+-- vim.keymap.set('n', '<C-h>', ':wincmd h<CR>', { desc = 'Move focus to the left window' })
+-- vim.keymap.set('n', '<C-l>', ':wincmd l<CR>', { desc = 'Move focus to the right window' })
+vim.keymap.set('n', '<C-k>', '<cmd>TmuxNavigateUp<CR>', { desc = 'Move focus to the up window' })
+vim.keymap.set('n', '<C-j>', '<cmd>TmuxNavigateDown<CR>', { desc = 'Move focus to the bottom window' })
+vim.keymap.set('n', '<C-h>', '<cmd>TmuxNavigateLeft<CR>', { desc = 'Move focus to the left window' })
+vim.keymap.set('n', '<C-l>', '<cmd>TmuxNavigateRight<CR>', { desc = 'Move focus to the right window' })
 
-vim.keymap.set('n', '<leader>wk', ':wincmd k<CR>', { desc = 'Move focus to the up window' })
-vim.keymap.set('n', '<leader>wj', ':wincmd j<CR>', { desc = 'Move focus to the bottom window' })
-vim.keymap.set('n', '<leader>wh', ':wincmd h<CR>', { desc = 'Move focus to the left window' })
-vim.keymap.set('n', '<leader>wl', ':wincmd l<CR>', { desc = 'Move focus to the right window' })
+vim.keymap.set('n', '<leader>wk', '<cmd>TmuxNavigateUp<CR>', { desc = 'Move focus to the up window' })
+vim.keymap.set('n', '<leader>wj', '<cmd>TmuxNavigateDown<CR>', { desc = 'Move focus to the bottom window' })
+vim.keymap.set('n', '<leader>wh', '<cmd>TmuxNavigateLeft<CR>', { desc = 'Move focus to the left window' })
+vim.keymap.set('n', '<leader>wl', '<cmd>TmuxNavigateRight<CR>', { desc = 'Move focus to the right window' })
 
 -- Press jk or ол fast to exit insert mode
 vim.keymap.set('i', 'jk', '<ESC>', opts)
