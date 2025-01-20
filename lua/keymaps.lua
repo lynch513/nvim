@@ -128,3 +128,9 @@ vim.keymap.set('n', '<leader>fr', function()
     print '\nInvalid choice or canceled'
   end
 end, { desc = 'Reopen file with selected encoding' })
+
+-- Exit from terminal
+vim.keymap.set('t', 'jk', '<C-\\><C-n>', { noremap = true })
+
+-- Toggle terminal
+vim.keymap.set({ 'n', 't', 'i' }, '<leader>tt', '<cmd>ToggleTerm<CR>', { desc = 'Toggle terminal' })
