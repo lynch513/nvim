@@ -52,7 +52,8 @@ require('lazy').setup({
   require 'plugins.render-markdown',
   require 'plugins.markdown-preview',
   require 'plugins.vim-tmux-navigator',
-  require 'plugins.toggleterm',
+  require 'plugins.toggleterm', -- terminal
+  require 'plugins.nvim-ufo', -- folding
 }, {
   ui = {
     -- If you have a Nerd Font, set icons to an empty table which will use the
