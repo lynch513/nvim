@@ -205,3 +205,6 @@ vim.api.nvim_create_autocmd('TermOpen', {
     vim.opt.relativenumber = false
   end,
 })
+
+-- Windows specific options
+vim.g.nofsync = true
