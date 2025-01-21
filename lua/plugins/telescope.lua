@@ -147,7 +147,7 @@ return {
         prompt_title = 'Search word in open files',
       }
     end, { desc = 'Search word in open files' })
-    vim.keymap.set('n', '<leader>sm', '<cmd>Telescope noice<CR>', { desc = 'Fuzzily search in messages' })
+    vim.keymap.set('n', '<leader>sm', '<cmd>Telescope noice<CR>', { desc = 'Search in messages' })
     vim.keymap.set('n', '<leader>sp', function()
       extensions.project.project {
         display_type = 'full',
