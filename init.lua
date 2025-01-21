@@ -54,6 +54,7 @@ require('lazy').setup({
   require 'plugins.vim-tmux-navigator',
   require 'plugins.toggleterm', -- terminal
   require 'plugins.nvim-ufo', -- folding
+  require 'plugins.nvim-highlight-colors',
 }, {
   ui = {
     -- If you have a Nerd Font, set icons to an empty table which will use the
