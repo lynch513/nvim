@@ -47,7 +47,8 @@ require('lazy').setup({
   require 'plugins.alpha',
   -- Git
   require 'plugins.gitsigns',
-  require 'plugins.neogit',
+  require 'plugins.lazy-git',
+  -- require 'plugins.neogit',
   -- Other
   require 'plugins.render-markdown',
   require 'plugins.markdown-preview',
