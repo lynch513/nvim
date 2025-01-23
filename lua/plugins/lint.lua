@@ -5,7 +5,8 @@ return {
     opts = {
       linters = {
         markdownlint = {
-          args = { '--config', '~/.markdownlint.yaml', '--' },
+          -- args = { '--config', '~/.markdownlint.yaml', '--' },
+          args = { '--disable', 'MD013', 'MD041', 'MD033' },
         },
       },
     },
