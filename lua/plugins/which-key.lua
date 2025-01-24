@@ -51,6 +51,10 @@ return {
       { '<leader>w', group = 'Windows' },
       -- { '<leader>h', group = 'Git [H]unk', mode = { 'n', 'v' } },
       { '<leader>g', group = 'Git', mode = { 'n', 'v' } },
+      { '<leader>m', group = 'Obsidian' },
+      { '<leader>ml', group = 'Links' },
+      { '<leader>ms', group = 'Search' },
+      { '<leader>mc', group = 'Create' },
     },
   },
 }
