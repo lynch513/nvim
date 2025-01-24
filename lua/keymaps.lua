@@ -144,3 +144,7 @@ vim.keymap.set('n', '<leader>ts', function()
     print 'Spell checking: off'
   end
 end, { desc = 'Toggle spell checking' })
+
+-- Keymaps for inner autocomplete
+vim.api.nvim_set_keymap('c', '<C-j>', [[ wildmenumode() ? '<C-n>' : '<C-j>' ]], { expr = true, noremap = true })
+vim.api.nvim_set_keymap('c', '<C-k>', [[ wildmenumode() ? '<C-p>' : '<C-j>' ]], { expr = true, noremap = true })
