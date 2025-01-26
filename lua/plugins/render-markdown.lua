@@ -6,4 +6,12 @@ return {
   ---@module 'render-markdown'
   ---@type render.md.UserConfig
   opts = {},
+  config = function()
+    local cmp = require 'cmp'
+    cmp.setup {
+      sources = cmp.config.sources {
+        { name = 'render-markdown' },
+      },
+    }
+  end,
 }
