@@ -27,8 +27,8 @@ return {
     require('obsidian').setup {
       workspaces = {
         {
-          name = 'Vault',
-          path = '~/YDisk/Vault',
+          name = 'Notes',
+          path = '~/Vault',
         },
       },
       completion = {
