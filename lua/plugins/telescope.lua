@@ -50,7 +50,7 @@ return {
       },
       pickers = {
         find_files = {
-          file_ignore_patterns = { 'node_modules', '%.git[\\/]', '%.venv[\\/]', '%.nuget[\\/]', '%.dotnet[\\/]' },
+          file_ignore_patterns = { 'node_modules', '%.git[\\/]', '%.venv[\\/]', '%.nuget[\\/]', '%.dotnet[\\/]', '%.npm[\\/]', '%.gradle[\\/]' },
           hidden = true,
         },
         buffers = {
@@ -65,7 +65,7 @@ return {
           },
         },
         live_grep = {
-          file_ignore_patterns = { 'node_modules', '%.git[\\/]', '%.venv[/\\]', '%.nuget[\\/]', '%.dotnet[\\/]' },
+          file_ignore_patterns = { 'node_modules', '%.git[\\/]', '%.venv[/\\]', '%.nuget[\\/]', '%.dotnet[\\/]', '%.npm[\\/]', '%.gradle[\\/]' },
           additional_args = function(_)
             return { '--hidden' }
           end,
