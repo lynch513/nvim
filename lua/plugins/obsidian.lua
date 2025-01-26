@@ -7,15 +7,20 @@ return {
     'nvim-lua/plenary.nvim',
   },
   keys = {
+    -- Create
     { '<leader>mcn', '<cmd>ObsidianNew<cr>', desc = 'Create new note', mode = 'n' },
     { '<leader>mct', '<cmd>ObsidianNewFromTemplate<cr>', desc = 'Create note from template', mode = 'n' },
+    -- Search
     { '<leader>mss', '<cmd>ObsidianQuickSwitch<cr>', desc = 'Quick switch note', mode = 'n' },
     { '<leader>msg', '<cmd>ObsidianSearch<cr>', desc = 'Search note', mode = 'n' },
     { '<leader>mst', '<cmd>ObsidianTags<cr>', desc = 'Search note', mode = 'n' },
+    { '<leader>msh', '<cmd>ObsidianTOC<cr>', desc = 'Search headers', mode = 'n' },
+    -- Links
     { '<leader>mlo', '<cmd>ObsidianFollowLink<cr>', desc = 'Follow link under cursor', mode = 'n' },
     { '<leader>mlb', '<cmd>ObsidianBacklinks<cr>', desc = 'Show backlinks', mode = 'n' },
     { '<leader>mla', '<cmd>ObsidianLinkNew<cr>', desc = 'Append link and new note', mode = 'n' },
     { '<leader>mlc', '<cmd>ObsidianLink<cr>', desc = 'Create link if note exist', mode = 'n' },
+    -- Common
     { '<leader>mt', '<cmd>ObsidianToggleCheckbox<cr>', desc = 'Toggle checkbox', mode = 'n' },
   },
   config = function()
