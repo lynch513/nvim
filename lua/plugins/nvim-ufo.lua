@@ -9,7 +9,11 @@ return {
 
     require('ufo').setup {
       provider_selector = function(bufnr, filetype, buftype)
-        return { 'lsp', 'indent' }
+        if filetype == 'markdown' then
+          return { 'treesitter', 'indent' }
+        else
+          return { 'lsp', 'indent' }
+        end
       end,
     }
   end,
