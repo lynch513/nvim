@@ -13,7 +13,7 @@ return {
     -- Search
     { '<leader>mss', '<cmd>ObsidianQuickSwitch<cr>', desc = 'Quick switch note', mode = 'n' },
     { '<leader>msg', '<cmd>ObsidianSearch<cr>', desc = 'Search note', mode = 'n' },
-    { '<leader>mst', '<cmd>ObsidianTags<cr>', desc = 'Search note', mode = 'n' },
+    { '<leader>mst', '<cmd>ObsidianTags<cr>', desc = 'Search tags', mode = 'n' },
     { '<leader>msh', '<cmd>ObsidianTOC<cr>', desc = 'Search headers', mode = 'n' },
     -- Links
     { '<leader>mlo', '<cmd>ObsidianFollowLink<cr>', desc = 'Follow link under cursor', mode = 'n' },
