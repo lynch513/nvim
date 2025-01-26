@@ -57,6 +57,7 @@ require('lazy').setup({
   require 'plugins.nvim-ufo', -- folding
   require 'plugins.nvim-highlight-colors',
   require 'plugins.obsidian',
+  require 'plugins.gx',
 }, {
   ui = {
     -- If you have a Nerd Font, set icons to an empty table which will use the
