@@ -50,7 +50,7 @@ return {
       },
       pickers = {
         find_files = {
-          file_ignore_patterns = { 'node_modules', '%.git[\\/]', '%.venv[\\/]', '%.nuget[\\/]', '%.dotnet[\\/]', '%.npm[\\/]', '%.gradle[\\/]' },
+          file_ignore_patterns = { 'node_modules', '%.git[\\/]', '%.venv[\\/]', '%.nuget[\\/]', '%.dotnet[\\/]', '%.npm[\\/]', '%.gradle[\\/]', '%.m2[\\/]' },
           hidden = true,
           no_ignore = true,
           no_ignore_parent = true,
@@ -67,7 +67,7 @@ return {
           },
         },
         live_grep = {
-          file_ignore_patterns = { 'node_modules', '%.git[\\/]', '%.venv[/\\]', '%.nuget[\\/]', '%.dotnet[\\/]', '%.npm[\\/]', '%.gradle[\\/]' },
+          file_ignore_patterns = { 'node_modules', '%.git[\\/]', '%.venv[/\\]', '%.nuget[\\/]', '%.dotnet[\\/]', '%.npm[\\/]', '%.gradle[\\/]', '%.m2[\\/]' },
           additional_args = function(_)
             return { '--hidden', '--no-ignore' }
           end,
@@ -125,9 +125,13 @@ return {
     vim.keymap.set('n', '<leader>gb', builtin.git_branches, { desc = 'Search git branches' })
     vim.keymap.set('n', '<leader>gs', builtin.git_status, { desc = 'Search git status (diff view)' })
     -- Search
-    -- vim.keymap.set('n', '<leader>sg', builtin.grep_string, { desc = 'Search word in files' })
+    -- vim.keymap.set('n', '<leader>sg', function()
+    --   extensions.live_grep_args.live_grep_args {
+    --     prompt_title = 'Search word in all files',
+    --   }
+    -- end, { desc = 'Search word in files' })
     vim.keymap.set('n', '<leader>sg', function()
-      extensions.live_grep_args.live_grep_args {
+      extensions.live_grep_args.live_grep {
         prompt_title = 'Search word in all files',
       }
     end, { desc = 'Search word in files' })
