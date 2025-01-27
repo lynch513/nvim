@@ -52,6 +52,8 @@ return {
         find_files = {
           file_ignore_patterns = { 'node_modules', '%.git[\\/]', '%.venv[\\/]', '%.nuget[\\/]', '%.dotnet[\\/]', '%.npm[\\/]', '%.gradle[\\/]' },
           hidden = true,
+          no_ignore = true,
+          no_ignore_parent = true,
         },
         buffers = {
           initial_mode = 'insert',
@@ -67,7 +69,7 @@ return {
         live_grep = {
           file_ignore_patterns = { 'node_modules', '%.git[\\/]', '%.venv[/\\]', '%.nuget[\\/]', '%.dotnet[\\/]', '%.npm[\\/]', '%.gradle[\\/]' },
           additional_args = function(_)
-            return { '--hidden' }
+            return { '--hidden', '--no-ignore' }
           end,
         },
         path_display = {
