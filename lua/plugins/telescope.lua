@@ -86,6 +86,14 @@ return {
           },
         },
       },
+      extensions = {
+        live_grep_args = {
+          file_ignore_patterns = { 'node_modules', '%.git[\\/]', '%.venv[/\\]', '%.nuget[\\/]', '%.dotnet[\\/]', '%.npm[\\/]', '%.gradle[\\/]', '%.m2[\\/]' },
+          additional_args = function(_)
+            return { '--hidden', '--no-ignore' }
+          end,
+        }
+      }
     }
 
     -- Enable Telescope extensions if they are installed
@@ -125,16 +133,16 @@ return {
     vim.keymap.set('n', '<leader>gb', builtin.git_branches, { desc = 'Search git branches' })
     vim.keymap.set('n', '<leader>gs', builtin.git_status, { desc = 'Search git status (diff view)' })
     -- Search
+    vim.keymap.set('n', '<leader>sg', function()
+      extensions.live_grep_args.live_grep_args {
+        prompt_title = 'Search word in all files with args',
+      }
+    end, { desc = 'Search word in files with args' })
     -- vim.keymap.set('n', '<leader>sg', function()
-    --   extensions.live_grep_args.live_grep_args {
+    --   builtin.live_grep {
     --     prompt_title = 'Search word in all files',
     --   }
     -- end, { desc = 'Search word in files' })
-    vim.keymap.set('n', '<leader>sg', function()
-      extensions.live_grep_args.live_grep {
-        prompt_title = 'Search word in all files',
-      }
-    end, { desc = 'Search word in files' })
     vim.keymap.set('n', '<leader>ss', function()
       builtin.current_buffer_fuzzy_find(require('telescope.themes').get_dropdown {
         winblend = 10,
