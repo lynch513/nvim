@@ -3,8 +3,14 @@ return {
   event = 'VeryLazy',
   opts = {
     routes = {
-      filter = { event = 'notify', find = 'No information available' },
-      opts = { skip = true },
+      {
+        filter = { event = 'notify', find = 'No information available' },
+        opts = { skip = true },
+      },
+      {
+        view = 'cmdline',
+        filter = { event = 'msg_showmode' },
+      },
     },
     lsp = {
       override = {
