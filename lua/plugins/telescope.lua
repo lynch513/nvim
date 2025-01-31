@@ -92,8 +92,8 @@ return {
           additional_args = function(_)
             return { '--hidden', '--no-ignore' }
           end,
-        }
-      }
+        },
+      },
     }
 
     -- Enable Telescope extensions if they are installed
@@ -115,6 +115,13 @@ return {
 
     -- Find & Files
     vim.keymap.set('n', '<leader>ff', builtin.find_files, { desc = 'Find files' })
+    vim.keymap.set('n', '<leader>fF', function()
+      builtin.find_files {
+        hidden = false,
+        no_ignore = false,
+        no_ignore_parent = false,
+      }
+    end, { desc = 'Find files without hidden' })
     vim.keymap.set('n', '<leader>fm', builtin.marks, { desc = 'Find marks' })
     vim.keymap.set('n', '<leader>fh', builtin.help_tags, { desc = 'Find help' })
     vim.keymap.set('n', '<leader>fd', builtin.diagnostics, { desc = 'Find diagnostics' })
@@ -138,6 +145,15 @@ return {
         prompt_title = 'Search word in all files with args',
       }
     end, { desc = 'Search word in files with args' })
+    vim.keymap.set('n', '<leader>sG', function()
+      extensions.live_grep_args.live_grep_args {
+        prompt_title = 'Search word in all files with args without hidden',
+        file_ignore_patterns = { 'node_modules', '%.git[\\/]', '%.venv[/\\]', '%.nuget[\\/]', '%.dotnet[\\/]', '%.npm[\\/]', '%.gradle[\\/]', '%.m2[\\/]' },
+        additional_args = function(_)
+          return {}
+        end,
+      }
+    end, { desc = 'Search word in files with args without hidden' })
     -- vim.keymap.set('n', '<leader>sg', function()
     --   builtin.live_grep {
     --     prompt_title = 'Search word in all files',
