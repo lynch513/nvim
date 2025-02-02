@@ -112,3 +112,5 @@ neogit
 args
 stdin
 FaqIndex
+autoremap
+config
