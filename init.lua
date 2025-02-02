@@ -20,6 +20,7 @@ vim.opt.rtp:prepend(lazypath)
 
 -- Setup plugins
 require('lazy').setup({
+  require 'plugins.langmapper',
   require 'plugins.which-key',
   require 'plugins.telescope',
   require 'plugins.autopairs',
@@ -81,5 +82,6 @@ require('lazy').setup({
   },
 })
 
+require('langmapper').automapping { global = true, buffer = true }
 -- The line beneath this is called `modeline`. See `:help modeline`
 -- vim: ts=2 sts=2 sw=2 et
