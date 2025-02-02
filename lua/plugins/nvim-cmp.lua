@@ -28,12 +28,12 @@ return {
       },
     },
     'saadparwaiz1/cmp_luasnip',
-
-    -- Adds other completion capabilities.
-    --  nvim-cmp does not ship with all sources by default. They are split
-    --  into multiple repos for maintenance purposes.
+    'neovim/nvim-lspconfig',
     'hrsh7th/cmp-nvim-lsp',
+    'hrsh7th/cmp-buffer',
     'hrsh7th/cmp-path',
+    'hrsh7th/cmp-cmdline',
+    'hrsh7th/nvim-cmp',
   },
   config = function()
     -- See `:help cmp`
@@ -118,5 +118,30 @@ return {
         { name = 'path' },
       },
     }
+
+    -- `/` cmdline setup.
+    cmp.setup.cmdline('/', {
+      mapping = cmp.mapping.preset.cmdline(),
+      sources = {
+        { name = 'buffer' },
+      },
+    })
+
+    -- `:` cmdline setup.
+    cmp.setup.cmdline(':', {
+      mapping = cmp.mapping.preset.cmdline(),
+      sources = cmp.config.sources({
+        { name = 'path' },
+      }, {
+        { name = 'cmdline' },
+      }),
+      matching = { disallow_symbol_nonprefix_matching = false },
+    })
+
+    -- -- Setup lspconfig.
+    -- local capabilities = require('cmp_nvim_lsp').default_capabilities()
+    -- require('lspconfig')['lua_ls'].setup {
+    --   capabilities = capabilities,
+    -- }
   end,
 }
