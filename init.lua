@@ -34,7 +34,7 @@ require('lazy').setup({
   require 'plugins.bufferline',
   require 'plugins.noice',
   -- Autocomplete & LSP configuration
-  require 'plugins.nvim-cmp',
+  require 'plugins.blink-cmp',
   require 'plugins.nvim-lspconfig',
   require 'plugins.nvim-treesitter',
   -- Autoformat
