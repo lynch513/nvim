@@ -33,11 +33,8 @@ require('lazy').setup({
   require 'plugins.lualine',
   require 'plugins.bufferline',
   require 'plugins.noice',
-  -- Autocomplete
+  -- Autocomplete & LSP configuration
   require 'plugins.nvim-cmp',
-  -- LSP configuration
-  require 'plugins.lazydev',
-  require 'plugins.luvit',
   require 'plugins.nvim-lspconfig',
   require 'plugins.nvim-treesitter',
   -- Autoformat
