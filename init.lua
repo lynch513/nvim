@@ -35,6 +35,7 @@ require('lazy').setup({
   require 'plugins.noice',
   -- Autocomplete & LSP configuration
   require 'plugins.blink-cmp',
+  require 'plugins.nvim-cmp', -- need for obsidian.nvim and some others plugins
   require 'plugins.nvim-lspconfig',
   require 'plugins.nvim-treesitter',
   -- Autoformat
@@ -55,7 +56,6 @@ require('lazy').setup({
   require 'plugins.nvim-highlight-colors',
   require 'plugins.obsidian',
   require 'plugins.gx',
-  -- require 'plugins.resession',
 }, {
   ui = {
     -- If you have a Nerd Font, set icons to an empty table which will use the
