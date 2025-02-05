@@ -18,7 +18,7 @@ end)
 vim.o.breakindent = true
 
 -- Save undo history
-vim.o.undofile = true
+vim.o.undofile = false
 
 -- Case-insensitive searching UNLESS \C or capital in search
 vim.o.ignorecase = true
@@ -62,17 +62,17 @@ vim.o.scrolloff = 10
 -- Minimal number of screen columns either side of cursor if wrap is `false`
 vim.o.sidescrolloff = 8
 
--- Set number column width to 2 {default 4}
-vim.o.numberwidth = 2
+-- Set number column width {default 4}
+vim.o.numberwidth = 4
 
 -- The number of spaces inserted for each indentation
-vim.o.shiftwidth = 2
+vim.o.shiftwidth = 4
 
 -- Insert n spaces for a tab
-vim.o.tabstop = 2
+vim.o.tabstop = 4
 
 -- Number of spaces that a tab counts for while performing editing operations
-vim.o.softtabstop = 2
+vim.o.softtabstop = 4
 
 -- Convert tabs to spaces
 vim.o.expandtab = true
