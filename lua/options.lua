@@ -51,7 +51,9 @@ vim.opt.termguicolors = true
 vim.o.whichwrap = 'bs<>[]hl'
 
 -- Wrap long line
-vim.o.wrap = false
+vim.o.wrap = true
+vim.o.linebreak = true
+vim.o.breakindent = true
 
 -- Companion to wrap don't split words
 vim.o.linebreak = true

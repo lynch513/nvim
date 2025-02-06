@@ -57,8 +57,8 @@ vim.keymap.set('n', '<leader>wh', '<cmd>TmuxNavigateLeft<CR>', { desc = 'Move fo
 vim.keymap.set('n', '<leader>wl', '<cmd>TmuxNavigateRight<CR>', { desc = 'Move focus to the right window' })
 
 -- Press jk or ол fast to exit insert mode
-vim.keymap.set('i', 'jk', '<ESC>', opts)
-vim.keymap.set('i', 'ол', '<ESC>', opts)
+vim.keymap.set('i', 'jj', '<ESC>', opts)
+vim.keymap.set('i', 'оо', '<ESC>', opts)
 
 -- Stay in indent mode
 vim.keymap.set('v', '<', '<gv', opts)
