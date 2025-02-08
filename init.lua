@@ -58,6 +58,7 @@ require('lazy').setup({
   require 'plugins.nvim-ufo', -- folding
   require 'plugins.gx',
   require 'plugins.resession', -- sessions
+  require 'plugins.flash-nvim',
 }, {
   ui = {
     -- If you have a Nerd Font, set icons to an empty table which will use the
