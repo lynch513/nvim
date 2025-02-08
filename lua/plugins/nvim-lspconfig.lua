@@ -194,6 +194,10 @@ return {
           },
         },
       },
+      rust_analyzer = {
+        cargo = { allFeatures = true },
+        checkOnSave = { command = 'clippy' },
+      },
     }
 
     -- Ensure the servers and tools above are installed
