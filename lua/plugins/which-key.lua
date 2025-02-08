@@ -1,6 +1,7 @@
 return {
   'folke/which-key.nvim',
-  event = 'VimEnter', -- Sets the loading event to 'VimEnter'
+  -- event = 'VimEnter', -- Sets the loading event to 'VimEnter'
+  event = 'VeryLazy', -- Sets the loading event to 'VimEnter'
   opts = {
     icons = {
       -- set icon mappings to true if you have a Nerd Font
@@ -42,19 +43,30 @@ return {
     -- Document existing key chains
     spec = {
       { '<leader>b', group = 'Buffers' },
+      { '<leader>и', group = 'Buffers' },
       { '<leader>c', group = 'Code', mode = { 'n', 'x' } },
+      { '<leader>с', group = 'Code', mode = { 'n', 'x' } },
       -- { '<leader>d', group = 'Document' },
       -- { '<leader>r', group = '[R]ename' },
       { '<leader>s', group = 'Search' },
+      { '<leader>ы', group = 'Search' },
       { '<leader>f', group = 'Find' },
+      { '<leader>а', group = 'Find' },
       { '<leader>t', group = 'Toggle' },
+      { '<leader>е', group = 'Toggle' },
       { '<leader>w', group = 'Windows' },
+      { '<leader>ц', group = 'Windows' },
       -- { '<leader>h', group = 'Git [H]unk', mode = { 'n', 'v' } },
       { '<leader>g', group = 'Git', mode = { 'n', 'v' } },
+      { '<leader>п', group = 'Git', mode = { 'n', 'v' } },
       { '<leader>m', group = 'Obsidian' },
+      { '<leader>ь', group = 'Obsidian' },
+      { '<leader>q', group = 'Sessions', mode = { 'n', 'v' } },
+      { '<leader>й', group = 'Sessions', mode = { 'n', 'v' } },
       { '<leader>ml', group = 'Links' },
-      { '<leader>ms', group = 'Search' },
-      { '<leader>mc', group = 'Create' },
+      { '<leader>ьд', group = 'Links' },
+      { '<leader>ьы', group = 'Search' },
+      { '<leader>ьс', group = 'Create' },
     },
   },
 }
