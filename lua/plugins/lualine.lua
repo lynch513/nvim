@@ -56,7 +56,7 @@ return {
     local filename = {
       'filename',
       file_status = true, -- displays file status (readonly status, modified status)
-      path = 0, -- 0 = just filename, 1 = relative path, 2 = absolute path
+      path = 1, -- 0 = just filename, 1 = relative path, 2 = absolute path
     }
 
     local hide_in_width = function()
@@ -100,15 +100,22 @@ return {
         -- https://www.nerdfonts.com/cheat-sheet
         --        
         section_separators = { left = '', right = '' },
+        -- section_separators = { left = '', right = '' },
         component_separators = { left = '', right = '' },
-        disabled_filetypes = { 'alpha', 'neo-tree', 'Avante' },
+        disabled_filetypes = { 'alpha', 'neo-tree', 'Avante', 'dashboard' },
         always_divide_middle = true,
       },
       sections = {
         lualine_a = { mode },
         lualine_b = { 'branch' },
         lualine_c = { filename },
-        lualine_x = { diagnostics, diff, { 'encoding', cond = hide_in_width }, { 'filetype', cond = hide_in_width }, file_format },
+        lualine_x = {
+          diagnostics,
+          diff,
+          { 'encoding', cond = hide_in_width },
+          { 'filetype', cond = hide_in_width },
+          file_format,
+        },
         lualine_y = { 'location' },
         lualine_z = { 'progress' },
       },
