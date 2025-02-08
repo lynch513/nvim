@@ -1,23 +1,74 @@
 return {
   'lewis6991/gitsigns.nvim',
-  config = function()
-    local gitsigns = require 'gitsigns'
-    gitsigns.setup()
+  event = 'VeryLazy',
+  opts = {
+    signs = {
+      add = { text = '▎' },
+      change = { text = '▎' },
+      delete = { text = '' },
+      topdelete = { text = '' },
+      changedelete = { text = '▎' },
+      untracked = { text = '▎' },
+    },
+    signs_staged = {
+      add = { text = '▎' },
+      change = { text = '▎' },
+      delete = { text = '' },
+      topdelete = { text = '' },
+      changedelete = { text = '▎' },
+    },
+    on_attach = function(buffer)
+      local gs = package.loaded.gitsigns
 
-    vim.keymap.set('n', '<leader>gp', gitsigns.preview_hunk, { desc = 'Git preview' })
-    vim.keymap.set('n', '<leader>gB', gitsigns.blame_line, { desc = 'Git blame line' })
-
-    -- Toggle git blame line
-    local git_blame_line_flag = false
-
-    vim.keymap.set('n', '<leader>tb', function()
-      git_blame_line_flag = not git_blame_line_flag
-
-      if git_blame_line_flag then
-        gitsigns.toggle_current_line_blame(true)
-      else
-        gitsigns.toggle_current_line_blame(false)
+      local function map(mode, l, r, desc)
+        vim.keymap.set(mode, l, r, { buffer = buffer, desc = desc })
       end
-    end, { desc = 'Toggle git blame line' })
-  end,
+
+      -- stylua: ignore start
+      map("n", "]h", function()
+        if vim.wo.diff then
+          vim.cmd.normal({ "]c", bang = true })
+        else
+          gs.nav_hunk("next")
+        end
+      end, "Next Hunk")
+      map("n", "[h", function()
+        if vim.wo.diff then
+          vim.cmd.normal({ "[c", bang = true })
+        else
+          gs.nav_hunk("prev")
+        end
+      end, "Prev Hunk")
+      map("n", "]H", function() gs.nav_hunk("last") end, "Last Hunk")
+      map("n", "[H", function() gs.nav_hunk("first") end, "First Hunk")
+      map({ "n", "v" }, "<leader>ghs", ":Gitsigns stage_hunk<CR>", "Stage Hunk")
+      map({ "n", "v" }, "<leader>ghr", ":Gitsigns reset_hunk<CR>", "Reset Hunk")
+      map("n", "<leader>ghS", gs.stage_buffer, "Stage Buffer")
+      map("n", "<leader>ghu", gs.undo_stage_hunk, "Undo Stage Hunk")
+      map("n", "<leader>ghR", gs.reset_buffer, "Reset Buffer")
+      map("n", "<leader>ghp", gs.preview_hunk_inline, "Preview Hunk Inline")
+      map("n", "<leader>ghb", function() gs.blame_line({ full = true }) end, "Blame Line")
+      map("n", "<leader>ghB", function() gs.blame() end, "Blame Buffer")
+      map("n", "<leader>ghd", gs.diffthis, "Diff This")
+      map("n", "<leader>ghD", function() gs.diffthis("~") end, "Diff This ~")
+      map({ "o", "x" }, "ih", ":<C-U>Gitsigns select_hunk<CR>", "GitSigns Select Hunk")
+
+      -- Toggle git blame line
+      local git_blame_line_flag = false
+
+      vim.keymap.set('n', '<leader>tb', function()
+        git_blame_line_flag = not git_blame_line_flag
+
+        if git_blame_line_flag then
+          gs.toggle_current_line_blame(true)
+        else
+          gs.toggle_current_line_blame(false)
+        end
+      end, { desc = 'Toggle git blame line' })
+    end,
+  },
+  -- config = function()
+  --   local gitsigns = require 'gitsigns'
+  --   gitsigns.setup()
+  -- end,
 }
