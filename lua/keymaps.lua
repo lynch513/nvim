@@ -133,7 +133,8 @@ end, { desc = 'Reopen file with selected encoding' })
 vim.keymap.set('t', 'jk', '<C-\\><C-n>', { noremap = true })
 
 -- Toggle terminal
-vim.keymap.set({ 'n', 't', 'i' }, '<leader>tt', '<cmd>ToggleTerm<CR>', { desc = 'Toggle terminal' })
+vim.keymap.set({ 'n', 't', 'i' }, '<leader>tt', '<cmd>ToggleTerm direction=horizontal<CR>', { desc = 'Toggle terminal' })
+vim.keymap.set({ 'n', 't', 'i' }, '<leader>tT', '<cmd>ToggleTerm direction=float<CR>', { desc = 'Toggle float terminal' })
 
 -- Toggle spell checking
 vim.keymap.set('n', '<leader>ts', function()
