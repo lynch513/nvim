@@ -23,16 +23,17 @@ require('lazy').setup({
   require 'plugins.langmapper',
   require 'plugins.which-key',
   require 'plugins.telescope',
+  require 'plugins.nvim-surround',
+  -- Appearance
   require 'plugins.autopairs',
   require 'plugins.indent-line',
   require 'plugins.todo-comments',
-  require 'plugins.nvim-surround',
-  -- Appearance
   require 'plugins.neo-tree',
   require 'plugins.themes',
   require 'plugins.lualine',
   require 'plugins.bufferline',
   require 'plugins.noice',
+  require 'plugins.nvim-highlight-colors',
   -- Autocomplete & LSP configuration
   require 'plugins.blink-cmp',
   require 'plugins.nvim-cmp', -- need for obsidian.nvim and some others plugins
@@ -47,15 +48,16 @@ require('lazy').setup({
   -- Git
   require 'plugins.gitsigns',
   require 'plugins.lazy-git',
-  -- Other
+  -- Markdown & Obsidian
   require 'plugins.render-markdown',
   require 'plugins.markdown-preview',
+  require 'plugins.obsidian',
+  -- Other
   require 'plugins.vim-tmux-navigator',
   require 'plugins.toggleterm', -- terminal
   require 'plugins.nvim-ufo', -- folding
-  require 'plugins.nvim-highlight-colors',
-  require 'plugins.obsidian',
   require 'plugins.gx',
+  require 'plugins.resession', -- sessions
 }, {
   ui = {
     -- If you have a Nerd Font, set icons to an empty table which will use the

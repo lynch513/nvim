@@ -5,9 +5,13 @@ return {
     resession.setup {
       autosave = {
         enabled = true,
-        interval = 5 * 60, -- every 5 * 60 sec
+        interval = 2 * 60, -- in seconds
+        notify = false,
       },
     }
+    vim.keymap.set('n', '<leader>qs', resession.save, { desc = 'Session save' })
+    vim.keymap.set('n', '<leader>ql', resession.load, { desc = 'Session load' })
+    vim.keymap.set('n', '<leader>qd', resession.delete, { desc = 'Session delete' })
     vim.api.nvim_create_autocmd('VimEnter', {
       callback = function()
         -- Only load the session if nvim was started with no args and without reading from stdin
