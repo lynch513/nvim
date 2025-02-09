@@ -35,9 +35,9 @@ require('lazy').setup({
   require 'plugins.noice',
   require 'plugins.nvim-highlight-colors',
   -- Autocomplete & LSP configuration
-  require 'plugins.blink-cmp',
+  -- require 'plugins.blink-cmp',
   require 'plugins.nvim-cmp', -- need for obsidian.nvim and some others plugins
-  require 'plugins.nvim-lspconfig',
+  -- require 'plugins.nvim-lspconfig',
   require 'plugins.nvim-treesitter',
   -- Autoformat
   require 'plugins.conform',
