@@ -156,7 +156,7 @@ vim.opt.spell = true
 vim.opt.spelllang = { 'en', 'ru' }
 
 vim.api.nvim_create_autocmd('FileType', {
-  pattern = { 'terminal', 'help', 'nofile', 'quickfix', 'prompt', 'dashboard', 'neo-tree' },
+  pattern = { 'terminal', 'toggleterm', 'help', 'nofile', 'quickfix', 'prompt', 'dashboard', 'neo-tree' },
   callback = function()
     vim.opt_local.spell = false
   end,
