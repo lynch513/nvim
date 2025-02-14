@@ -152,3 +152,31 @@ end, { desc = 'Toggle spell checking' })
 -- Keymaps for inner autocomplete
 vim.api.nvim_set_keymap('c', '<C-j>', [[ wildmenumode() ? '<C-n>' : '<C-j>' ]], { expr = true, noremap = true })
 vim.api.nvim_set_keymap('c', '<C-k>', [[ wildmenumode() ? '<C-p>' : '<C-j>' ]], { expr = true, noremap = true })
+
+-- Markdown
+vim.api.nvim_create_autocmd('FileType', {
+  pattern = 'markdown',
+  callback = function()
+    vim.keymap.set('n', 'z2o', function()
+      vim.cmd 'silent! g/^## /foldopen'
+    end, { noremap = true, silent = true, desc = 'Open folds on level 2 headings' })
+    vim.keymap.set('n', 'z2c', function()
+      vim.cmd 'normal! zR'
+      vim.cmd 'silent! g/^## /foldclose'
+    end, { noremap = true, silent = true, desc = 'Close folds on level 2 headings' })
+    vim.keymap.set('n', 'z3o', function()
+      vim.cmd 'silent! g/^### /foldopen'
+    end, { noremap = true, silent = true, desc = 'Open folds on level 3 headings' })
+    vim.keymap.set('n', 'z3c', function()
+      vim.cmd 'normal! zR'
+      vim.cmd 'silent! g/^### /foldclose'
+    end, { noremap = true, silent = true, desc = 'Close folds on level 3 headings' })
+    vim.keymap.set('n', 'z4o', function()
+      vim.cmd 'silent! g/^#### /foldopen'
+    end, { noremap = true, silent = true, desc = 'Open folds on level 4 headings' })
+    vim.keymap.set('n', 'z4c', function()
+      vim.cmd 'normal! zR'
+      vim.cmd 'silent! g/^#### /foldclose'
+    end, { noremap = true, silent = true, desc = 'Close folds on level 4 headings' })
+  end,
+})
