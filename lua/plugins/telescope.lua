@@ -183,5 +183,6 @@ return {
         display_type = 'full',
       }
     end, { desc = 'Search projects' })
+    vim.keymap.set('n', '<leader>sk', builtin.keymaps, { desc = 'Search keymaps' })
   end,
 }

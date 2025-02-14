@@ -37,9 +37,12 @@ vim.keymap.set('n', '<leader>bn', '<cmd> enew <CR>', { desc = 'Buffer new' })
 
 -- Window management
 vim.keymap.set('n', '<leader>wv', '<C-w>v', { desc = 'Split window vertically' })
+vim.keymap.set('n', '<leader>w|', '<C-w>v', { desc = 'Split window vertically' })
 vim.keymap.set('n', '<leader>ws', '<C-w>s', { desc = 'Split window horizontally' })
+vim.keymap.set('n', '<leader>w_', '<C-w>s', { desc = 'Split window horizontally' })
 vim.keymap.set('n', '<leader>w=', '<C-w>=', { desc = 'Make split windows equal width & height' })
 vim.keymap.set('n', '<leader>wc', ':close<CR>', { desc = 'Window close current split ' })
+vim.keymap.set('n', '<leader>wo', '<C-w>o', { desc = 'Close all other windows' })
 
 -- Navigate between splits
 -- vim.keymap.set('n', '<C-k>', ':wincmd k<CR>', { desc = 'Move focus to the up window' })
