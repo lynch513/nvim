@@ -21,6 +21,8 @@ return {
       preset = 'default',
       ['<C-j>'] = { 'select_next', 'fallback' },
       ['<C-k>'] = { 'select_prev', 'fallback' },
+      ['<C-n>'] = { 'scroll_documentation_down', 'fallback' },
+      ['<C-p>'] = { 'scroll_documentation_up', 'fallback' },
       ['<Tab>'] = {
         function(cmp)
           if cmp.snippet_active() then
