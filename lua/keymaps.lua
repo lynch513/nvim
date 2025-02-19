@@ -180,3 +180,15 @@ vim.api.nvim_create_autocmd('FileType', {
     end, { noremap = true, silent = true, desc = 'Close folds on level 4 headings' })
   end,
 })
+
+local format_on_save_flag = true
+-- Toggle autoformat
+vim.keymap.set('n', '<leader>tf', function()
+  format_on_save_flag = not format_on_save_flag
+
+  if format_on_save_flag then
+    vim.b.disable_autoformat = false
+  else
+    vim.b.disable_autoformat = true
+  end
+end, { desc = 'Toggle format buffer on save' })
