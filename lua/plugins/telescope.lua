@@ -114,14 +114,15 @@ return {
     -- vim.keymap.set('n', '<leader><leader>', builtin.buffers, { desc = '[ ] Find existing buffers' })
 
     -- Find & Files
-    vim.keymap.set('n', '<leader>ff', builtin.find_files, { desc = 'Find files' })
-    vim.keymap.set('n', '<leader>fF', function()
-      builtin.find_files {
-        hidden = false,
-        no_ignore = false,
-        no_ignore_parent = false,
-      }
-    end, { desc = 'Find files without hidden' })
+    vim.keymap.set('n', '<leader>ff', require('fzf-lua').files, { desc = 'Find files' })
+    -- vim.keymap.set('n', '<leader>ff', builtin.find_files, { desc = 'Find files' })
+    -- vim.keymap.set('n', '<leader>fF', function()
+    --   builtin.find_files {
+    --     hidden = false,
+    --     no_ignore = false,
+    --     no_ignore_parent = false,
+    --   }
+    -- end, { desc = 'Find files without hidden' })
     vim.keymap.set('n', '<leader>fm', builtin.marks, { desc = 'Find marks' })
     vim.keymap.set('n', '<leader>fh', builtin.help_tags, { desc = 'Find help' })
     vim.keymap.set('n', '<leader>fd', builtin.diagnostics, { desc = 'Find diagnostics' })
@@ -131,7 +132,8 @@ return {
     -- vim.keymap.set('n', '<leader>fr', builtin.resume, { desc = 'Find resume' })
     vim.keymap.set('n', '<leader>f.', builtin.oldfiles, { desc = 'Find recent files ("." for repeat)' })
     -- Buffers
-    vim.keymap.set('n', '<leader>bb', builtin.buffers, { desc = 'Find existing buffers' })
+    -- vim.keymap.set('n', '<leader>bb', builtin.buffers, { desc = 'Find existing buffers' })
+    vim.keymap.set('n', '<leader>bb', '<cmd>FzfLua buffers sort_mru=true sort_lastused=true<cr>', { desc = 'Buffers' })
     vim.keymap.set('n', '<leader><leader>', builtin.buffers, { desc = 'Search existing buffers' })
     -- Git
     vim.keymap.set('n', '<leader>gf', builtin.git_files, { desc = 'Search git files' })
@@ -140,31 +142,33 @@ return {
     vim.keymap.set('n', '<leader>gb', builtin.git_branches, { desc = 'Search git branches' })
     vim.keymap.set('n', '<leader>gs', builtin.git_status, { desc = 'Search git status (diff view)' })
     -- Search
-    vim.keymap.set('n', '<leader>sg', function()
-      extensions.live_grep_args.live_grep_args {
-        prompt_title = 'Search word in all files with args',
-      }
-    end, { desc = 'Search word in files with args' })
-    vim.keymap.set('n', '<leader>sG', function()
-      extensions.live_grep_args.live_grep_args {
-        prompt_title = 'Search word in all files with args without hidden',
-        file_ignore_patterns = { 'node_modules', '%.git[\\/]', '%.venv[/\\]', '%.nuget[\\/]', '%.dotnet[\\/]', '%.npm[\\/]', '%.gradle[\\/]', '%.m2[\\/]' },
-        additional_args = function(_)
-          return {}
-        end,
-      }
-    end, { desc = 'Search word in files with args without hidden' })
+    -- vim.keymap.set('n', '<leader>sg', function()
+    --   extensions.live_grep_args.live_grep_args {
+    --     prompt_title = 'Search word in all files with args',
+    --   }
+    -- end, { desc = 'Search word in files with args' })
+    vim.keymap.set('n', '<leader>sg', require('fzf-lua').live_grep, { desc = 'Search word in files' })
+    -- vim.keymap.set('n', '<leader>sG', function()
+    --   extensions.live_grep_args.live_grep_args {
+    --     prompt_title = 'Search word in all files with args without hidden',
+    --     file_ignore_patterns = { 'node_modules', '%.git[\\/]', '%.venv[/\\]', '%.nuget[\\/]', '%.dotnet[\\/]', '%.npm[\\/]', '%.gradle[\\/]', '%.m2[\\/]' },
+    --     additional_args = function(_)
+    --       return {}
+    --     end,
+    --   }
+    -- end, { desc = 'Search word in files with args without hidden' })
     -- vim.keymap.set('n', '<leader>sg', function()
     --   builtin.live_grep {
     --     prompt_title = 'Search word in all files',
     --   }
     -- end, { desc = 'Search word in files' })
-    vim.keymap.set('n', '<leader>ss', function()
-      builtin.current_buffer_fuzzy_find(require('telescope.themes').get_dropdown {
-        winblend = 10,
-        previewer = false,
-      })
-    end, { desc = 'Fuzzily search in current buffer' })
+    -- vim.keymap.set('n', '<leader>ss', function()
+    --   builtin.current_buffer_fuzzy_find(require('telescope.themes').get_dropdown {
+    --     winblend = 10,
+    --     previewer = false,
+    --   })
+    -- end, { desc = 'Fuzzily search in current buffer' })
+    vim.keymap.set('n', '<leader>ss', '<cmd>FzfLua grep_curbuf<cr>', { desc = 'Fuzzily search in current buffer' })
     vim.keymap.set('n', '<leader>/', function()
       builtin.current_buffer_fuzzy_find(require('telescope.themes').get_dropdown {
         winblend = 10,

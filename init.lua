@@ -23,6 +23,7 @@ require('lazy').setup({
   require 'plugins.langmapper',
   require 'plugins.which-key',
   require 'plugins.telescope',
+  require 'plugins.fzf',
   require 'plugins.nvim-surround',
   -- Appearance
   require 'plugins.autopairs',
