@@ -20,7 +20,7 @@ return {
     { 'nvim-telescope/telescope-ui-select.nvim' },
     -- Useful for getting pretty icons, but requires a Nerd Font.
     { 'nvim-tree/nvim-web-devicons', enabled = vim.g.have_nerd_font },
-    { 'nvim-telescope/telescope-live-grep-args.nvim' },
+    -- { 'nvim-telescope/telescope-live-grep-args.nvim' },
     { 'nvim-telescope/telescope-project.nvim' },
   },
   config = function()
@@ -99,73 +99,15 @@ return {
     -- Enable Telescope extensions if they are installed
     pcall(require('telescope').load_extension, 'fzf')
     pcall(require('telescope').load_extension, 'ui-select')
-    pcall(require('telescope').load_extension, 'noice')
-    pcall(require('telescope').load_extension, 'live_grep_args')
     pcall(require('telescope').load_extension, 'project')
 
-    -- vim.keymap.set('n', '<leader>sh', builtin.help_tags, { desc = '[S]earch [H]elp' })
-    -- vim.keymap.set('n', '<leader>sk', builtin.keymaps, { desc = '[S]earch [K]eymaps' })
-    -- vim.keymap.set('n', '<leader>sf', builtin.find_files, { desc = '[S]earch [F]iles' })
-    -- vim.keymap.set('n', '<leader>sw', builtin.grep_string, { desc = '[S]earch current [W]ord' })
-    -- vim.keymap.set('n', '<leader>sg', builtin.live_grep, { desc = '[S]earch by [G]rep' })
-    -- vim.keymap.set('n', '<leader>sd', builtin.diagnostics, { desc = '[S]earch [D]iagnostics' })
-    -- vim.keymap.set('n', '<leader>sr', builtin.resume, { desc = '[S]earch [R]esume' })
-    -- vim.keymap.set('n', '<leader>s.', builtin.oldfiles, { desc = '[S]earch Recent Files ("." for repeat)' })
-    -- vim.keymap.set('n', '<leader><leader>', builtin.buffers, { desc = '[ ] Find existing buffers' })
-
     -- Find & Files
-    vim.keymap.set('n', '<leader>fn', function()
-      builtin.find_files { cwd = vim.fn.stdpath 'config' }
-    end, { desc = 'Find Neovim files' })
-    -- vim.keymap.set('n', '<leader>fr', builtin.resume, { desc = 'Find resume' })
-    -- Buffers
-    -- vim.keymap.set('n', '<leader>bb', builtin.buffers, { desc = 'Find existing buffers' })
-    vim.keymap.set('n', '<leader><leader>', builtin.buffers, { desc = 'Search existing buffers' })
-    -- Git
-    vim.keymap.set('n', '<leader>gf', builtin.git_files, { desc = 'Search git files' })
-    vim.keymap.set('n', '<leader>gc', builtin.git_commits, { desc = 'Search git commits' })
-    vim.keymap.set('n', '<leader>gC', builtin.git_bcommits, { desc = 'Search git commits for current file' })
-    vim.keymap.set('n', '<leader>gb', builtin.git_branches, { desc = 'Search git branches' })
-    vim.keymap.set('n', '<leader>gs', builtin.git_status, { desc = 'Search git status (diff view)' })
-    -- Search
-    -- vim.keymap.set('n', '<leader>sg', function()
-    --   extensions.live_grep_args.live_grep_args {
-    --     prompt_title = 'Search word in all files with args',
-    --   }
-    -- end, { desc = 'Search word in files with args' })
-    -- vim.keymap.set('n', '<leader>sG', function()
-    --   extensions.live_grep_args.live_grep_args {
-    --     prompt_title = 'Search word in all files with args without hidden',
-    --     file_ignore_patterns = { 'node_modules', '%.git[\\/]', '%.venv[/\\]', '%.nuget[\\/]', '%.dotnet[\\/]', '%.npm[\\/]', '%.gradle[\\/]', '%.m2[\\/]' },
-    --     additional_args = function(_)
-    --       return {}
-    --     end,
-    --   }
-    -- end, { desc = 'Search word in files with args without hidden' })
-    -- vim.keymap.set('n', '<leader>sg', function()
-    --   builtin.live_grep {
-    --     prompt_title = 'Search word in all files',
-    --   }
-    -- end, { desc = 'Search word in files' })
-    -- vim.keymap.set('n', '<leader>ss', function()
-    --   builtin.current_buffer_fuzzy_find(require('telescope.themes').get_dropdown {
-    --     winblend = 10,
-    --     previewer = false,
-    --   })
-    -- end, { desc = 'Fuzzily search in current buffer' })
-    vim.keymap.set('n', '<leader>/', function()
-      builtin.current_buffer_fuzzy_find(require('telescope.themes').get_dropdown {
-        winblend = 10,
-        previewer = false,
-      })
-    end, { desc = 'Fuzzily search in current buffer' })
     vim.keymap.set('n', '<leader>sw', function()
       builtin.live_grep {
         grep_open_files = true,
         prompt_title = 'Search word in open files',
       }
     end, { desc = 'Search word in open files' })
-    vim.keymap.set('n', '<leader>sm', '<cmd>Telescope noice<CR>', { desc = 'Search in messages' })
     vim.keymap.set('n', '<leader>sp', function()
       extensions.project.project {
         display_type = 'full',
