@@ -10,6 +10,7 @@ return {
     -- Create
     { '<leader>mcn', '<cmd>ObsidianNew<cr>', desc = 'Create new note', mode = 'n' },
     { '<leader>mct', '<cmd>ObsidianNewFromTemplate<cr>', desc = 'Create note from template', mode = 'n' },
+    { '<leader>mcT', '<cmd>ObsidianToday<cr>', desc = 'Create TODAY note', mode = 'n' },
     -- Search
     { '<leader>mss', '<cmd>ObsidianQuickSwitch<cr>', desc = 'Quick switch note', mode = 'n' },
     { '<leader>msg', '<cmd>ObsidianSearch<cr>', desc = 'Search note', mode = 'n' },

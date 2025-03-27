@@ -38,7 +38,7 @@ return {
     vim.keymap.set('n', '<leader>gc', '<cmd>FzfLua git_commits<cr>', { desc = 'Search git commits' })
     vim.keymap.set('n', '<leader>gC', '<cmd>FzfLua git_bcommits<cr>', { desc = 'Search git commits for current file' })
     vim.keymap.set('n', '<leader>gb', '<cmd>FzfLua git_branches<cr>', { desc = 'Search git branches' })
-    vim.keymap.set('n', '<leader>gB', '<cmd>FzfLua git_brame<cr>', { desc = 'Blame current buffer' })
+    vim.keymap.set('n', '<leader>gB', '<cmd>FzfLua git_blame<cr>', { desc = 'Blame current buffer' })
     vim.keymap.set('n', '<leader>gs', '<cmd>FzfLua git_status<cr>', { desc = 'Search git status (diff view)' })
   end,
 }

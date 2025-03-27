@@ -192,3 +192,9 @@ vim.keymap.set('n', '<leader>tf', function()
     vim.b.disable_autoformat = true
   end
 end, { desc = 'Toggle format buffer on save' })
+
+-- Convert end of line
+-- Преобразование выделенного текста в Linux окончания строк (\n)
+vim.api.nvim_set_keymap('v', '<leader>dll', [[:s/\r//g<CR>]], { noremap = true, silent = true, desc = 'Convert to unix eol' })
+-- Преобразование выделенного текста в Windows окончания строк (\r\n)
+-- vim.api.nvim_set_keymap('v', '<leader>dlw', [[:s/\n/\r\n/g<CR>]], { noremap = true, silent = true, desc = 'Convert to win eol' })

@@ -42,6 +42,20 @@ return {
       javascript = { 'eslint' },
       typescript = { 'eslint' },
       html = { 'prettierd' },
+      cs = { 'csharpier' },
+      xml = { 'xmlformat' },
+    },
+    formatters = {
+      csharpier = {
+        command = 'dotnet-csharpier',
+        args = { '--write-stdout' },
+        stdin = true,
+      },
+      xmlformat = {
+        command = 'xmlformat',
+        args = { '--selfclose', '-' },
+        stdin = true,
+      },
     },
     default_format_opts = {
       lsp_format = 'fallback',
